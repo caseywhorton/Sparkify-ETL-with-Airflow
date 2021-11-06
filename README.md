@@ -6,9 +6,23 @@ This project's purpose is to effectively move data from one cloud storage locati
 
 ## Files
 
-+ etl.py: Python module containing functions to extract JSON data from S3, transform it using Spark, and load it back into S3 in partitioned Parquet files.
-+ dl.cfg: Configuration file with AWS access key and secret access key.
-+ copymyfile.sh: Executable bash script that copies etl.py and dl.cfg to a main machine on a cluster of machines (managed in Amazon EMR).
+The files used in this project are all Python files. For convenience, below is the folder structure and names of files. Notice that the main directories are for 'dags' and 'plugins'. This subdirectories under 'plugins' are 'helpers' and 'operators'. All of the sql queries used in the project are under the 'helper' directory and all of the operators used are in the 'operators' directory.
+
++ airflow
+    +  dags
+         + project5_dag.py: the directed acyclic graph (DAG) python file
+     + plugins
+          + _ _ init _ _.py
+          + helpers
+               + _ _ init _ _ .py
+               + sql_queries.py: SQL queries
+          + operators
+               + _ _ init _ _ .py
+               + data_quality.py: defines the operator class that checks the dimension and fact tables for data quality
+               + load_dimension.py: defines the operator class to transform staging tables into dimension tables
+               + load_fact.py: defines the operator class to transform staging tables into fact tables 
+               + stage_redshift.py: defines the operator class to copy json files in S3 directories to staging tables in Redshift
+
 
 ## Amazon S3
 
@@ -44,7 +58,7 @@ Add a VPC security group to the list of security groups. You can edit the VPC se
 
 **Airflow Links**
 
-Airflow has numerous links to run and manage your directed acyclic graphs (DAGs). This DAG is configured to run once you 
+Airflow has numerous links to run and manage your directed acyclic graphs (DAGs). This DAG is configured to run once triggered by the user. The 'play button' all the way to the left under _Links_ will trigger the DAG. The remaining links allow you to view the running of the DAG, the completion (or failure) of tasks, the code and refresh Airflow.
 
 **Connections**
 
