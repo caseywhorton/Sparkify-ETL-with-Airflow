@@ -1,8 +1,11 @@
+<img src="images/aliane-schwartzhaupt-QdmUva6qBTk-unsplash.jpg" width="1250" height="300">
+Photo by <a href="https://unsplash.com/@aliane_schwartzhaupt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aliane Schwartzhaupt</a> on <a href="https://unsplash.com/s/photos/drums?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
 # Sparkify-ETL-with-Airflow
 
 This project's purpose is to effectively move data from a cloud storage location (S3) to a relational database (Redshift), then tranform that data into fact and dimension tables. A data quality check is conducted to make sure the extraction, transformation and loading to the fact and dimension tables worked. This project uses Airflow to manage and run a **D**irected **A**cyclic **G**raph (DAG).
 
-
+<img src="images/complete_graph_view_airflow.PNG" width="1000" height="250">
 
 # Installation & Setup
 
@@ -60,9 +63,13 @@ Add a VPC security group to the list of security groups. You can edit the VPC se
 
 **Airflow Links**
 
+<img src="images/airflow_links.PNG" width="500" height="100">
+
 Airflow has numerous links to run and manage your directed acyclic graphs (DAGs). This DAG is configured to run once triggered by the user. The 'play button' all the way to the left under _Links_ will trigger the DAG. The remaining links allow you to view the running of the DAG, the completion (or failure) of tasks, the code and refresh Airflow.
 
 **Connections**
+
+<img src="images/airflow_connections.PNG" width="500" height="200">
 
 Airflow makes it easy to store access credentials to commonly used services such as Amazon Web Services and Postgres. These services can be accessed within Airflow using hooks to let you programmatically perform tasks on these services. For this project, the original data is stored in S3 and the database is on Redshift (both on Amazon Web Services), so connections to both of these services need set up. Under the _Admin_ section on Airflow there is an option for _Connections_. There is the option to create new connections.
 
@@ -90,6 +97,8 @@ How to configure the connection details for a Amazon Web Services type connectio
 + Password: AWS secret access key
 
 # ETL Process
+
+<img src="images/complete_graph_view_airflow.PNG" width="1000" height="250">
 
 **Process**
 
