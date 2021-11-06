@@ -1,6 +1,8 @@
 # Sparkify-ETL-with-Airflow
 
-This project's purpose is to effectively move data from one cloud storage location to another after transforming its structure for the purpose of further analysis. Processing of data is distributed across a cluster of machines in a Hadoop framework.  A Python module is executed across the cluster using the `spark-submit` function.  The entire project uses Amazon Web Services (AWS) products, including S3, EC2 and EMR.
+This project's purpose is to effectively move data from a cloud storage location (S3) to a relational database (Redshift), then tranform that data into fact and dimension tables. A data quality check is conducted to make sure the extraction, transformation and loading to the fact and dimension tables worked. This project uses Airflow to manage and run a **D**irected **A**cyclic **G**raph (DAG).
+
+
 
 # Installation & Setup
 
