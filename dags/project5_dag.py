@@ -37,7 +37,7 @@ copy_events_task = StageToRedshiftOperator(
     table="stg_events",
     redshift_conn_id="redshift",
     aws_credentials_id="aws_credentials",
-    aws_iam_role = "arn:aws:iam::536826985609:role/myRedshiftRole"
+    aws_iam_role = ""
 )
 
 
@@ -49,7 +49,7 @@ copy_songs_task = StageToRedshiftOperator(
     table="stg_songs",
     redshift_conn_id="redshift",
     aws_credentials_id="aws_credentials",
-    aws_iam_role = "arn:aws:iam::536826985609:role/myRedshiftRole"
+    aws_iam_role = ""
 )
 
 
